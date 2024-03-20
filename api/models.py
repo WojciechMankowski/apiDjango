@@ -25,3 +25,4 @@ class Rating(Model):
     score = FloatField()
     number_of_ratings = IntegerField()
     place = ForeignKey(Place, on_delete=CASCADE, related_name='ratings')
+    disabilitytype = ForeignKey(DisabilityType, on_delete=CASCADE, related_name="DisabilityType")
