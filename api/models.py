@@ -11,7 +11,7 @@ class Place(Model):
     address = CharField(max_length=250)
     url_imge = URLField(max_length=250)
     url_map_google = URLField(max_length=250)
-    disability_type_id = ForeignKey(DisabilityType, on_delete=CASCADE, related_name='places')
+    disability_type_id = ForeignKey(DisabilityType, on_delete=CASCADE, related_name="DisabilityType")
 
 
 class Comment(Model):
@@ -25,4 +25,4 @@ class Rating(Model):
     score = FloatField()
     number_of_ratings = IntegerField()
     place = ForeignKey(Place, on_delete=CASCADE, related_name='ratings')
-    disabilitytype = ForeignKey(DisabilityType, on_delete=CASCADE, related_name="DisabilityType")
+
