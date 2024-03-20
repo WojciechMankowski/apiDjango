@@ -1,4 +1,4 @@
-from django.db.models import Model, CharField, DateTimeField, ForeignKey, IntegerField, URLField, CASCADE, FloatField
+from django.db.models import Model, ManyToManyField, CharField, DateTimeField, ForeignKey, IntegerField, URLField, CASCADE, FloatField
 
 
 class DisabilityType(Model):
@@ -14,7 +14,7 @@ class Place(Model):
     address = CharField(max_length=250)
     url_imge = URLField(max_length=250)
     url_map_google = URLField(max_length=250)
-    disability_type_id = ForeignKey(DisabilityType, on_delete=CASCADE, related_name="DisabilityType")
+    disability_type_id = ManyToManyField(DisabilityType, on_delete=CASCADE, related_name="DisabilityType")
 
     def __str__(self):
         return f'Miejsce o nazwie: {self.name}'
