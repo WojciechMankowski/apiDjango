@@ -6,8 +6,8 @@ SECRET_KEY = 'django-insecure-@a8h@1x_-sga4y^k*qlk3^#pa0%4&q^cez5-g00u(52tck578i
 DEBUG = True
 
 ALLOWED_HOSTS = ["dostepnyswiatdlawszystkich.pythonanywhere.com"]
-
-CORS_ALLOWED_ORIGINS = ["dostepnyswiatdlawszystkich.pythonanywhere.com"]
+# https://dostepnyswiatdlawszystkich.pythonanywhere.com/api/api
+CORS_ALLOWED_ORIGINS = ["https://dostepnyswiatdlawszystkich.pythonanywhere.com"]
 
 INSTALLED_APPS = [
     'rest_framework',
