@@ -8,7 +8,9 @@ DEBUG = True
 ALLOWED_HOSTS = ["dostepnyswiatdlawszystkich.pythonanywhere.com", ]
 
 CORS_ALLOWED_ORIGINS = ["https://dostepnyswiatdlawszystkich.pythonanywhere.com"]
-
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGIN_REGEXES = ["https://dostepnyswiatdlawszystkich.pythonanywhere.com" ]
 INSTALLED_APPS = [
     'rest_framework',
     'django.contrib.admin',
