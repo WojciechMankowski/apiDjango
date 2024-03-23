@@ -9,9 +9,6 @@ class DisabilityType(Model):
     def __str__(self):
         return f"Typ: {self.type}"
 
-class DisabilityTypePlace(Model):
-    disability_type = ForeignKey('DisabilityType', on_delete=CASCADE)
-    place = ForeignKey('Place', on_delete=CASCADE)
 
 class Place(Model):
     name = CharField(max_length=250)
