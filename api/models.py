@@ -39,3 +39,8 @@ class Rating(Model):
 
     def __str__(self):
         return f"Ocena dla miejsca o id: {self.place}"
+
+
+class DisabilityTypePlace(Model):
+    disability_type = ForeignKey('DisabilityType', on_delete=CASCADE)
+    place = ForeignKey('Place', on_delete=CASCADE)
