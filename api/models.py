@@ -15,8 +15,8 @@ class Place(Model):
     address = CharField(max_length=250)
     url_imge = URLField(max_length=250)
     url_map_google = URLField(max_length=250)
-    # disability_type_id = ManyToManyField(to=DisabilityType,related_name="places")
-    disability_type_id = ManyToManyField(DisabilityType, through='DisabilityTypePlace', related_name="places")
+    disability_type_id = ManyToManyField(to=DisabilityType,related_name="places")
+
     def __str__(self):
         return f'Miejsce o nazwie: {self.name}'
 
