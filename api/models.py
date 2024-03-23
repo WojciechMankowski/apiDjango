@@ -9,14 +9,17 @@ class DisabilityType(Model):
     def __str__(self):
         return f"Typ: {self.type}"
 
+class DisabilityTypePlace(Model):
+    disability_type = ForeignKey('DisabilityType', on_delete=CASCADE)
+    place = ForeignKey('Place', on_delete=CASCADE)
 
 class Place(Model):
     name = CharField(max_length=250)
     address = CharField(max_length=250)
     url_imge = URLField(max_length=250)
     url_map_google = URLField(max_length=250)
-    disability_type_id = ManyToManyField(DisabilityType, related_name="places" ,
-                                         through='DisabilityTypePlace')
+    disability_type_id = ManyToManyField('DisabilityType',
+                                         through='DisabilityTypePlace', related_name="places")
 
     def __str__(self):
         return f'Miejsce o nazwie: {self.name}'
@@ -41,6 +44,4 @@ class Rating(Model):
         return f"Ocena dla miejsca o id: {self.place}"
 
 
-class DisabilityTypePlace(Model):
-    disability_type = ForeignKey('DisabilityType', on_delete=CASCADE)
-    place = ForeignKey('Place', on_delete=CASCADE)
+
