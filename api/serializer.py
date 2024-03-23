@@ -21,7 +21,7 @@ class DisabilityTypeSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class PlaceSerializer(serializers.HyperlinkedModelSerializer):
-    disability_type_id = DisabilityTypeSerializer(read_only=True)
+    disability_type_id = DisabilityTypeSerializer(read_only=True, many=True)
     comments = CommentSerializers(read_only=True, many=True)
 
     class Meta:
