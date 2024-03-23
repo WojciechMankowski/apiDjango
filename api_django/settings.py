@@ -89,7 +89,7 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
 
 CORS_ALLOWED_ORIGINS = [
-    'dostepnyswiatdlawszystkich.netlify.app', 'localhost:5173/'
+    'https://dostepnyswiatdlawszystkich.netlify.app/', 'http://localhost:5173/'
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
