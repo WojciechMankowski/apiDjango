@@ -29,7 +29,7 @@ class PlaceSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['id', 'name', 'address', 'url_imge',
                   'url_map_google',
                   'ratings',
-                  'comments', "disabilitytype", "disability_type_id"]
+                  'comments', "disability_type_id"]
 
 
 class RatingSerializer(serializers.HyperlinkedModelSerializer):
