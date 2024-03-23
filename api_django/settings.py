@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@a8h@1x_-sga4y^k*qlk3^#pa0%4&q^cez5-g00u(52tck578i'
 DEBUG = True
 
-ALLOWED_HOSTS = ["dostepnyswiatdlawszystkich.pythonanywhere.com", ]
+ALLOWED_HOSTS = ["dostepnyswiatdlawszystkich.pythonanywhere.com", '*']
 
 INSTALLED_APPS = [
     'rest_framework',
@@ -28,7 +28,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'api_django.urls'
