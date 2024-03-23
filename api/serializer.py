@@ -27,7 +27,7 @@ class PlaceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Place
         fields = ['id', 'name', 'address', 'url_imge',
-                  'url_map_google'
+                  'url_map_google',
                   'ratings',
                   'comments', "disabilitytype", "disability_type_id"]
 
