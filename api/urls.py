@@ -7,6 +7,7 @@ router = routers.DefaultRouter()
 # Rejestracja widoków w routerze
 router.register(r'comments', CommentViewSet)
 router.register(r'disability_types', DisabilityTypeViewSet)
+# router.register(r'ratings/<int:pk>', RatingViewSet.as_view({"put": "put"}, name='rating-update'))
 router.register(r'ratings', RatingViewSet)
 router.register(r'places', PlaceViewSet)
 
