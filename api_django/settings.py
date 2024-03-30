@@ -50,10 +50,21 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'api_django.wsgi.application'
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dostepnyswiatdla$default',
+        'USER': 'dostepnyswiatdla',
+        'PASSWORD': 'Wojtek92!',
+        'HOST': 'dostepnyswiatdlawszystkich.mysql.pythonanywhere-services.com',
+        "PORT": 3306
     }
 }
 
