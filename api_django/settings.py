@@ -16,7 +16,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
-    'corsheaders'
+    'corsheaders',
+    "rest_framework_api_key",
 ]
 
 MIDDLEWARE = [
@@ -27,7 +28,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
 ]
 
 ROOT_URLCONF = 'api_django.urls'
@@ -48,25 +51,27 @@ TEMPLATES = [
         },
     },
 ]
+# mysql -u dostepnyswiatdla -h dostepnyswiatdlawszystkich.mysql.pythonanywhere-services.com 'dostepnyswiatdla$default'   < db-backup.sql
 
 WSGI_APPLICATION = 'api_django.wsgi.application'
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dostepnyswiatdla$default',
-        'USER': 'dostepnyswiatdla',
-        'PASSWORD': 'Wojtek92!',
-        'HOST': 'dostepnyswiatdlawszystkich.mysql.pythonanywhere-services.com',
-        "PORT": 3306
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'dostepnyswiatdla$default',
+            'USER': 'dostepnyswiatdla',
+            'PASSWORD': 'Wojtek92!',
+            'HOST': 'dostepnyswiatdlawszystkich.mysql.pythonanywhere-services.com',
+            "PORT": 3306
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -98,14 +103,9 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 MEDIA_URL='/media/'
 
-CORS_ALLOWED_ORIGINS = [
-    r"https://dostepnyswiatdlawszystkich.netlify.app",
-    'http://localhost:5173'
-]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT']
 CORS_ALLOW_HEADERS = ['content-type', 'x-requested-with']
-
 
 

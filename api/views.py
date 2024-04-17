@@ -52,7 +52,7 @@ class RatingViewSet(viewsets.ModelViewSet):
             return Response({'message': "zmieniono ocenę"}, status=status.HTTP_201_CREATED,
                             )
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializers, status=status.HTTP_400_BAD_REQUEST)
 class PlaceViewSet(viewsets.ModelViewSet):
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
