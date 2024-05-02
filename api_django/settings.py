@@ -52,17 +52,27 @@ TEMPLATES = [
         },
     },
 ]
+# mysql -u dostepnyswiatdla -h dostepnyswiatdlawszystkich.mysql.pythonanywhere-services.com 'dostepnyswiatdla$default'   < db-backup.sql
+
 WSGI_APPLICATION = 'api_django.wsgi.application'
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': os.environ.get('HOSTNAME'),
-        'NAME': 'postgres',
-        'USER': os.environ.get('USER'),
-        'PORT': '5432',
-        'PASSWORD': os.environ.get('PASSWORD'),
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'dostepnyswiatdla$default',
+            'USER': 'dostepnyswiatdla',
+            'PASSWORD': 'Wojtek92!',
+            'HOST': 'dostepnyswiatdlawszystkich.mysql.pythonanywhere-services.com',
+            "PORT": 3306
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
