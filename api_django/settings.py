@@ -52,8 +52,6 @@ TEMPLATES = [
         },
     },
 ]
-# mysql -u dostepnyswiatdla -h dostepnyswiatdlawszystkich.mysql.pythonanywhere-services.com 'dostepnyswiatdla$default'   < db-backup.sql
-
 WSGI_APPLICATION = 'api_django.wsgi.application'
 DATABASES = {
     'default': {
