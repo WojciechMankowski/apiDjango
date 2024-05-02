@@ -1,10 +1,11 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@a8h@1x_-sga4y^k*qlk3^#pa0%4&q^cez5-g00u(52tck578i'
 DEBUG = True
-
+load_dotenv()
 ALLOWED_HOSTS = ["dostepnyswiatdlawszystkich.pythonanywhere.com", '*']
 
 INSTALLED_APPS = [
@@ -54,24 +55,16 @@ TEMPLATES = [
 # mysql -u dostepnyswiatdla -h dostepnyswiatdlawszystkich.mysql.pythonanywhere-services.com 'dostepnyswiatdla$default'   < db-backup.sql
 
 WSGI_APPLICATION = 'api_django.wsgi.application'
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': os.environ.get('HOSTNAME'),
+        'NAME': 'postgres',
+        'USER': os.environ.get('USER'),
+        'PORT': '5432',
+        'PASSWORD': os.environ.get('PASSWORD'),
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'dostepnyswiatdla$default',
-            'USER': 'dostepnyswiatdla',
-            'PASSWORD': 'Wojtek92!',
-            'HOST': 'dostepnyswiatdlawszystkich.mysql.pythonanywhere-services.com',
-            "PORT": 3306
-        }
-    }
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
